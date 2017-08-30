@@ -23,7 +23,7 @@ Manipulation functions take into account the hierarchical relationships between 
 For example, when filtering taxa or associated data, the supertaxa or subtaxa of taxa that meet some condition can be preserved or discarded.
 The `taxa` package also implements extremely flexible parsers to read data in from nearly any format containing taxonomic information. 
 
-Although the `taxa` package is already useful, to make it a solid foundation for the community to build on, we want to make it faster, more robust, and work to integrate it with enough other packages.
+Although the `taxa` package is already useful, to make it a solid foundation for the community to build on, we want to make it faster, more robust, and work to integrate it with select packages that will speed adoption.
 By testing with very large data sets, we want to determine current limits and bottlenecks so that we can identify parts of code to refactor or replace with C++ to increase speed.
 We also want to implement parallel processing to make better use of modern multi-core computers.
 Since we hope to make this a foundational package, we want to add extensive unit tests in addition to the many already implemented, to minimize bugs and their effects on dependent packages.
