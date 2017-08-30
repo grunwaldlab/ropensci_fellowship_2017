@@ -7,7 +7,7 @@ bibliography: bibliography.bib
 
 # rOpenSci fellowship application
 
-## Goals
+## Goal
 
 Large data sets containing community taxonomic information are becoming increasingly common, but the hierarchical nature of taxonomic information makes manipulating these data sets difficult and many R packages made for this have similar, yet unique, data structures and functions.
 These differences make it difficult to use multiple packages on the same data set and causes programmers to spend time creating and maintaining analogous solutions for the same low-level problems of data storage and manipulation, rather than focusing on novel functionality.
@@ -33,7 +33,7 @@ Once `taxize` and `metacoder` are refactored to use `taxa`, database searching/d
 This useful, all-purpose functionality will incentivize others to adopt the `taxa` package as a standard.
 
 The other related project we are working on is `metacoder`, an R package for visualization and analysis of community taxonomic data, with an emphasis on providing tools for microbiome research [@foster2017metacoder].
-`Metacoder` introduced a way of visualizing statistics distributed throughout a hierarchy (e.g. a taxonomic tree) by quantitatively mapping statistics to the the color or size of nodes and edges in a tree.
+`Metacoder` introduced a way of visualizing statistics distributed throughout a hierarchy (e.g. a taxonomic tree) by quantitatively mapping statistics to the color or size of nodes and edges in a tree.
 We call these “heat trees” and they have been enthusiastically received as an intuitive and information-dense alternative to stacked bar charts, which is the most common way taxon abundance in communities are currently plotted in publications.
 The `heat_tree` function in `metacoder` is highly flexible, yet only requires a few arguments to produce high-quality figures in most cases, since raw statistics are automatically mapped to color/size and the size range of elements displayed are optimized for each graph to strike a balance between avoiding overlaps and maximizing the apparent differences.
 `Metacoder` also provides a way to simulate PCR in R, which is important for selecting primers for metabarcoding research.
@@ -84,7 +84,7 @@ Finally, if this framework is adopted by the community as we hope, we would also
 
 * Contact the maintainers of major packages using taxonomic information and offer to help adopt `taxa`
 * Finish refactoring of `taxize` to use `taxa`
-* Present at the 2018 rOpenSci Unconference
+* Present at the 2018 rOpenSci unconference
 * Present at the 2018 useR! conference
 * Conduct a workshop and reproducible microbiome analysis in R using these tool at the 2018 11th International Congress of Plant Pathology
 * Write a series of blogs for R-bloggers demonstrating the usefulness of the `taxa`/`taxize`/`metacoder` framework
