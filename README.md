@@ -178,7 +178,8 @@ Expected outcomes and timeline
 Collaborators
 -------------
 
-Niklaus Grünwald
+Niklaus Grünwald, Horticultural Crops Research Laboratory, USDA-ARS,
+Corvallis, Oregon, United States of America
 
 High level budget
 -----------------
