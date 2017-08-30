@@ -1,0 +1,6 @@
+---
+output: md_document
+---
+
+```{r child = 'ropensci_fellowship_2017.Rmd'}
+```
