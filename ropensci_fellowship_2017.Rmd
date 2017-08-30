@@ -93,7 +93,7 @@ Finally, if this framework is adopted by the community as we hope, we would also
 
 ## Collaborators
 
-Niklaus Grünwald
+Niklaus Grünwald, Horticultural Crops Research Laboratory, USDA-ARS, Corvallis, Oregon, United States of America 
 
 ## High level budget
 
