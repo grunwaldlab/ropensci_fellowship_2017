@@ -7,6 +7,14 @@ bibliography: bibliography.bib
 
 # A standard for taxonomic data storage and manipulation in R
 
+**Zachary S. L. Foster**
+
+*Department of Botany and Plant Pathology, Oregon State University, Corvallis, Oregon, USA*
+
+**Niklaus J. Grünwald (PI)**
+
+*Horticultural Crops Research Laboratory, USDA-ARS, Corvallis, Oregon, USA*
+
 ## Intorduction
 
 Large data sets containing community taxonomic information are becoming increasingly common, but the hierarchical nature of taxonomic information makes manipulating these data sets difficult and many R packages made for this have similar, yet unique, data structures and functions.
@@ -73,9 +81,9 @@ Finally, if this framework is adopted by the community as we hope, we would also
 ### Months 1-3: Improvements to the `taxa` package
 
 * Add missing dplyr analog functions (e.g. summarise, group_by, etc)
-* Port slowest parts of the code to C++ to improve speed
-* Add ability to use multiple cores to improve speed
-* Add exhaustive unit tests (test coverage of > 95%)
+* Port slowest parts of the code to C++ to improve speed using `Rcpp` [@eddelbuettel2011rcpp]
+* Add ability to use multiple cores to improve speed using `RcppParallel`
+* Add exhaustive unit tests (test coverage of > 95%) using `testthat` [@wickham2011testthat] and codecov
 
 ### Months 4-8: Improvements to `metacoder`
 
@@ -100,10 +108,6 @@ Finally, if this framework is adopted by the community as we hope, we would also
 * Write a series of blogs for R-bloggers demonstrating the usefulness of the `taxa`/`taxize`/`metacoder` framework
 * Publish a journal article on `taxa` in F1000Research, or another open-access journal
 * Publish a journal article on reproducible microbiome analysis in R in an open-access journal
-
-## Collaborators
-
-Niklaus Grünwald, Horticultural Crops Research Laboratory, USDA-ARS, Corvallis, Oregon, United States of America 
 
 ## High level budget
 

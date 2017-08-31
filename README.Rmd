@@ -2,5 +2,5 @@
 output: md_document
 ---
 
-```{r child = 'ropensci_fellowship_2017.Rmd'}
+```{r child = 'foster_grunwald_2017_fellowship_application.Rmd'}
 ```
