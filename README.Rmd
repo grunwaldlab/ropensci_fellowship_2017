@@ -2,5 +2,7 @@
 output: md_document
 ---
 
+Below is a markdown rendering of our application for the 2017 rOpenSci fellowship. See the PDF for the official version. 
+
 ```{r child = 'foster_grunwald_2017_fellowship_application.Rmd'}
 ```

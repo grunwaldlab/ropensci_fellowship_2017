@@ -1,3 +1,6 @@
+Below is a markdown rendering of our application for the 2017 rOpenSci
+fellowship. See the PDF for the official version.
+
 A standard for taxonomic data storage and manipulation in R
 ===========================================================
 
