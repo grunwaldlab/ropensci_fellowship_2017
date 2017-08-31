@@ -3,6 +3,7 @@ output:
   pdf_document: default
   html_document: default
 bibliography: bibliography.bib
+geometry: margin=0.99in
 ---
 
 # A standard for taxonomic data storage and manipulation in R
@@ -22,13 +23,13 @@ We are developing the rOpenSci package `taxa` to provide a set of all-purpose cl
 To make it a solid foundation for the community to build on, we want to make it faster, more robust, and work to integrate it with select packages that will speed adoption.
 We are also working on `metacoder`, an R package for visualization and analysis of community taxonomic data.
 `Metacoder` is currently being significantly refactored to use the classes provided by `taxa` and more functionality is being added specific to community taxonomic data analysis.
-An award to this project would help facilitate the continued development of standards for community taxonomic information in R, the development of the `metacoder` as an example of an R package that works with these standards, and dissemination of these new tools through presentations at conferences, journal articles, and online blogs.
+An award to this project would help facilitate the continued development of standards for community taxonomic information in R, the development of `metacoder` as an example of an R package that works with these standards, and dissemination of these new tools through presentations at conferences, journal articles, and online blogs.
 
 **Introduction:**
 Large data sets containing community taxonomic information are becoming increasingly common, but the hierarchical nature of taxonomic information makes manipulating these data sets difficult and many R packages made for this have similar, yet unique, data structures and functions.
 These differences make it difficult to use multiple packages on the same data set and causes programmers to spend time creating and maintaining analogous solutions for the same low-level problems of data storage and manipulation, rather than focusing on novel functionality.
 These inefficiencies are likely to get worse as the cost of high-throughput sequences decreases, the interest in microbiome research increases, and the number of associated R packages increases.
-To address this problem, we are developing what we hope will become a standard in R for storing, manipulating, and plotting taxonomic information and any other application-specific data associated with it.
+To address this problem, we are developing what we hope will become a standard in R for querying, storing, manipulating, and plotting taxonomic information and any other application-specific data associated with it.
 Being awarded this fellowship will allow us to devote the time needed to bring this project to maturity and help integrate it into the community of R programmers working with taxonomic data.
 A common infrastructure will allow programmers to make focused, novel contributions without creating redundant functionality.
 A cohesive community of packages will encourage users to conduct analyses entirely within R, increasing the effectiveness of reproducibility tools like `packrat` and R Markdown.
@@ -36,7 +37,7 @@ A cohesive community of packages will encourage users to conduct analyses entire
 **Background on `taxa`:**
 We are working on developing the rOpenSci package `taxa`, in collaboration with Scott Chamberlain, to provide a set of all-purpose classes and associated manipulation functions for taxonomic data, modeled after the `dplyr` data-manipulation philosophy.
 In addition to classes that represent taxa, classifications, and taxonomic trees, the `taxa` packages has a class that stores any number of application-specific tables, lists, or vectors mapped to a taxonomic tree so that manipulations to the taxonomy are also applied to the corresponding data and vice versa.
-For example, when filtering taxa, the corresponding user-supplied data can be optionally discarded or reassinged to supertaxa that passed the filter.
+For example, when filtering taxa, the corresponding user-supplied data can be optionally discarded or reassigned to supertaxa that passed the filter.
 Manipulation functions take into account the hierarchical relationships between taxa as well.
 For example, when filtering taxa or associated data, the supertaxa or subtaxa of taxa that meet some condition can be preserved or discarded.
 The `taxa` package also implements extremely flexible parsers to read data in from nearly any format containing taxonomic information. 
@@ -65,8 +66,8 @@ In that case, `metacoder` would focus exclusively on aiding analysis of communit
 One particularly useful high-level visualization technique we want to facilitate is a matrix of unlabeled heat trees that show which taxa are deferentially abundant between every pair-wise set of treatments accompanied by a larger, labeled tree that functions as a key.
 This can be used to show the results of thousands of statistical tests and the treatments/taxa they apply to in a graph that can fit in a publication, such as figure 5 in @foster2017metacoder.
 Currently, making these graphs is quite complicated, but we believe we can design a function that will make creating these graphs easy for users.
-We also want to implement pairs of parser and writer functions that handle the common formats used in metabarcoding research to make it easy for users move data in to and out of R.
-These parsers will return `taxa` objects, so they would be very useful for all packages that adopt the `taxa` package as a standard.
+We also want to implement pairs of parser and writer functions that handle the common formats used in metabarcoding research to make it easy for users to move data in to and out of R.
+These parsers will return `taxa` objects, so they will be useful for all packages that adopt the `taxa` package as a standard.
 They could also be used to convert between file formats, since a user could read from one format and write to another.
 The `taxa` classes are flexible enough that we should be able to losslessly read and write the same format, so this would provide a way to subset or otherwise modify large, complicated files, using the powerful manipulation functions provided by `taxa`. 
 
@@ -101,6 +102,7 @@ Finally, if this framework is adopted by the community as we hope, we would also
 1. Add ability to highlight/delineate groups of `taxa` with shaded polygons
 1. Add ability to plot user-supplied images in place of nodes
 1. Add support for interactive plots using `plotly`
+1. Update and enhance our website containing the manual and tutorials for `metacoder`
 
 ### Months 9-12: Outreach and community building
 
@@ -118,28 +120,39 @@ Finally, if this framework is adopted by the community as we hope, we would also
 ```{r, echo = FALSE}
 travel <- data.frame(matrix(ncol=4, nrow = 6))
 names(travel) <- c('Item', 'Cost', 'Units', 'Total')
-travel[1,1] <- "Airtavel for the useR! conference: Portland, OR, USA to Brisbane, AU"
+travel[1,1] <- "Airtavel for the useR! conference: Portland, Oregon, USA to Brisbane, AU"
 travel[1,2] <- 1400
-travel[1,3] <- 1
-travel[1,4] <- 1400
+travel[1,4] <- travel[1,2]
+
 travel[2,1] <- "Per diem lodging for the useR! conference"
 travel[2,2] <- 159
 travel[2,3] <- "4 nights"
 travel[2,4] <- travel[2,2] * 4
+
 travel[3,1] <- "Per diem meals for the useR! conference"
 travel[3,2] <- 98
 travel[3,3] <- "5 days"
 travel[3,4] <- travel[3,2] * 5
+
 travel[4,1] <- "Registration for the useR! conference"
 travel[4,2] <- 125
-travel[4,3] <- 1
-travel[4,4] <- 125
-travel[5,1] <- "Monthly graduate student salary"
+travel[4,4] <- travel[4,2]
+
+travel[5,1] <- "Travel and registration for other conferences"
 travel[5,2] <- 2000
-travel[5,3] <- "12 months"
-travel[5,4] <- travel[5,2] * 12
-travel[6,1] <- "Grand total"
-travel[6,4] <- sum(travel[-6,4])
+travel[5,4] <- travel[5,2]
+
+travel[6,1] <- "Monthly graduate student salary"
+travel[6,2] <- 2000
+travel[6,3] <- "12 months"
+travel[6,4] <- travel[6,2] * 12
+
+travel[7,1] <- "Graduate student fringe benefits"
+travel[7,2] <- 6000
+travel[7,4] <- travel[7,2]
+
+travel[8,1] <- "Grand total"
+travel[8,4] <- sum(travel[-8,4])
 
 options(knitr.kable.NA = '') 
 knitr::kable(travel, align = c('l','c','c','r'), format.args = list(decimal.mark = ".", big.mark = ","))
