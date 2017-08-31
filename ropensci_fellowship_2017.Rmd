@@ -1,15 +1,24 @@
 ---
+title: |
+  | Developing Standards For
+  | Community Taxonomic Information
+author: Zach S.L. Foster
 output:
   pdf_document: default
   html_document: default
 bibliography: bibliography.bib
 ---
 
-# rOpenSci fellowship application
 
-## Goal
+**Abstract:** The collection of environmental samples (soil, water, animal gut contents, etc.), and sequencing the contaned DNA, has resulted in large data sets containing community taxonomic information.
+However, the hierarchical nature of taxonomic information makes manipulating these data sets difficult and many R packages made for this have similar, yet unique, data structures and functions.
+We are working on developing the rOpenSci package `taxa`, in collaboration with Scott Chamberlain (rOpenSci), to provide a set of all-purpose classes and associated manipulation functions for taxonomic data, modeled after the `dplyr` data-manipulation philosophy.
+Although the `taxa` package is already useful, to make it a solid foundation for the community to build on, we want to make it faster, more robust, and work to integrate it with select packages that will speed adoption.
+The other related project we are working on is `metacoder`, an R package for visualization and analysis of community taxonomic data, with an emphasis on providing tools for microbiome research [@foster2017metacoder].
+`Metacoder` is currently being significantly refactored to use the classes provided by `taxa` and more functionality is being added specific to community taxonomic data analysis.
+An award to this project would help facilitate the continued development of standards for community taxonomic information in R, development of the `metacoder` as an example of an R package that works with these standards to visualize this data, and to disseminate these new tools through presentation at a useR! conference and online.
 
-Large data sets containing community taxonomic information are becoming increasingly common, but the hierarchical nature of taxonomic information makes manipulating these data sets difficult and many R packages made for this have similar, yet unique, data structures and functions.
+**Background:** Large data sets containing community taxonomic information are becoming increasingly common, but the hierarchical nature of taxonomic information makes manipulating these data sets difficult and many R packages made for this have similar, yet unique, data structures and functions.
 These differences make it difficult to use multiple packages on the same data set and causes programmers to spend time creating and maintaining analogous solutions for the same low-level problems of data storage and manipulation, rather than focusing on novel functionality.
 These inefficiencies are likely to get worse as the cost of high-throughput sequences decreases, the interest in microbiome research increases, and the number of associated R packages increases.
 To address this problem, we are developing what we hope will become a standard in R for storing, manipulating, and plotting taxonomic information and any other application-specific data associated with it.
@@ -17,13 +26,14 @@ Being awarded this fellowship will allow us to devote the time needed to bring t
 A common infrastructure will allow programmers to make focused, novel contributions without creating redundant functionality.
 A cohesive community of packages will encourage users to conduct analyses entirely within R, increasing the effectiveness of reproducibility tools like `packrat` and R Markdown.
 
-We are working on developing the rOpenSci package `taxa`, in collaboration with Scott Chamberlain, to provide a set of all-purpose classes and associated manipulation functions for taxonomic data, modeled after the `dplyr` data-manipulation philosophy.
+We are working on developing the rOpenSci package `taxa`, in collaboration with Scott Chamberlain (rOpenSci), to provide a set of all-purpose classes and associated manipulation functions for taxonomic data, modeled after the `dplyr` data-manipulation philosophy.
 In addition to classes that represent `taxa`, classifications, and taxonomic trees, the `taxa` packages has a class that stores any number of application-specific tables, lists, or vectors mapped to a taxonomic tree so that manipulations to the taxonomy are also applied to the corresponding data and vice versa.
 Manipulation functions take into account the hierarchical relationships between taxa as well.
 For example, when filtering taxa or associated data, the supertaxa or subtaxa of taxa that meet some condition can be preserved or discarded.
 The `taxa` package also implements extremely flexible parsers to read data in from nearly any format containing taxonomic information. 
 
-Although the `taxa` package is already useful, to make it a solid foundation for the community to build on, we want to make it faster, more robust, and work to integrate it with select packages that will speed adoption.
+
+**Proposed activities:** Although the `taxa` package is already useful, to make it a solid foundation for the community to build on, we want to make it faster, more robust, and work to integrate it with select packages that will speed adoption.
 By testing with very large data sets, we want to determine current limits and bottlenecks so that we can identify parts of code to refactor or replace with C++ to increase speed.
 We also want to implement parallel processing to make better use of modern multi-core computers.
 Since we hope to make this a foundational package, we want to add extensive unit tests in addition to the many already implemented, to minimize bugs and their effects on dependent packages.
@@ -49,7 +59,7 @@ These parsers will return `taxa` objects, so they would be very useful for all p
 They could also be used to convert between file formats, since a user could read from one format and write to another.
 The `taxa` classes are flexible enough that we should be able to losslessly read and write the same format, so this would provide a way to subset or otherwise modify large, complicated files, using the powerful manipulation functions provided by `taxa`. 
 
-Encouraging adoption of this framework by both users and developers is key to the success of this project.
+**Conclusion:** Encouraging adoption of this framework by both users and developers is key to the success of this project.
 We hope to facilitate adoption by developers by offering to help maintainers adapt existing packages to `taxa`.
 Once a critical mass of packages have adopted `taxa`, we expect that it will naturally be adopted by new packages without our direct assistance.
 To attract users, we want to write a series of posts on major R blogs that cover specific uses of the framework and demonstrate its usefulness.
@@ -62,10 +72,10 @@ Finally, if this framework is adopted by the community as we hope, we would also
 
 ### Months 1-3: Improvements to the `taxa` package
 
-* Add missing dplyr analog functions (e.g. summarise, group_by, etc)
-* Port slowest parts of the code to C++ to improve speed
-* Add ability to use multiple cores to improve speed
-* Add exhaustive unit tests (test coverage of > 95%)
+1. Add missing dplyr analog functions (e.g. summarise, group_by, etc)
+1. Port slowest parts of the code to C++ to improve speed
+1. Add ability to use multiple cores to improve speed
+1. Add exhaustive unit tests (test coverage of > 95%)
 
 ### Months 4-8: Improvements to `metacoder`
 
@@ -93,20 +103,39 @@ Finally, if this framework is adopted by the community as we hope, we would also
 
 ## Collaborators
 
-Niklaus Grünwald, Horticultural Crops Research Laboratory, USDA-ARS, Corvallis, Oregon, United States of America 
+Niklaus Grünwald, Research Plant Pathologist, Horticultural Crops Research Laboratory, USDA-ARS, Corvallis, Oregon, United States of America 
 
 ## High level budget
 
-### 2018 useR! conference
 
-* Airfare from Portland, OR to Brisbane Australia: \$1,400
-* Per diem meals and incidentals Brisbane Australia: \$98 x 4 days = \$392
-* Per diem lodging Brisbane Australia: \$159 x 4 days = \$636
-* Student registration fee: \$125
+```{r, echo = FALSE}
+travel <- data.frame(matrix(ncol=4, nrow = 5))
+names(travel) <- c('Item', 'Cost', 'Units', 'Total')
+travel[1,1] <- "Airtavel: Portland, OR, USA to Brisbane, AU"
+travel[1,2] <- 1400
+travel[1,3] <- 1
+travel[1,4] <- 1400
+travel[2,1] <- "Lodging"
+travel[2,2] <- 159
+travel[2,3] <- "4 nights"
+travel[2,4] <- 159 * 4
+travel[3,1] <- "Meals"
+travel[3,2] <- 98
+travel[3,3] <- "4 days"
+travel[3,4] <- 98 * 4
+travel[4,1] <- "Conference registration"
+travel[4,2] <- 125
+travel[4,3] <- 1
+travel[4,4] <- 125
+travel[5,1] <- "Grand total"
+travel[5,4] <- sum(travel[-5,4])
 
-*Estimated subtotal: \$2553*
+options(knitr.kable.NA = '') 
+knitr::kable(travel, align = c('l','c','c','r'), format.args = list(decimal.mark = ".", big.mark = ","), caption="Travel budget for 2018 useR! conference")
+```
 
-### Salery
+
+### Salary
 
 * Compensation: \$2,000 x 12 months = \$24,000
 
