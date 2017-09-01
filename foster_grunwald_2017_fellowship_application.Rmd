@@ -3,7 +3,7 @@ output:
   pdf_document: default
   html_document: default
 bibliography: bibliography.bib
-geometry: margin=0.99in
+geometry: margin=0.93in
 ---
 
 # A standard for taxonomic data storage and manipulation in R
@@ -18,26 +18,29 @@ geometry: margin=0.99in
 
 **Abstract:**
 The increasing use of high-throughput sequencing of environmental samples (soil, water, animal gut contents, etc.) has resulted in large data sets containing community taxonomic information.
-However, the hierarchical nature of taxonomic information makes manipulating these data sets difficult.
+However, the hierarchical nature of taxonomic information makes manipulating these data difficult.
 We are developing the rOpenSci package `taxa` to provide a set of all-purpose classes and manipulation functions for taxonomic data.
 To make it a solid foundation for the community to build on, we want to make it faster, more robust, and work to integrate it with select packages that will speed adoption.
 We are also working on `metacoder`, an R package for visualization and analysis of community taxonomic data.
 `Metacoder` is currently being significantly refactored to use the classes provided by `taxa` and more functionality is being added specific to community taxonomic data analysis.
 An award to this project would help facilitate the continued development of standards for community taxonomic information in R, the development of `metacoder` as an example of an R package that works with these standards, and dissemination of these new tools through presentations at conferences, journal articles, and online blogs.
 
-**Introduction:**
+## Problem statement
+
 Large data sets containing community taxonomic information are becoming increasingly common, but the hierarchical nature of taxonomic information makes manipulating these data sets difficult and many R packages made for this have similar, yet unique, data structures and functions.
 These differences make it difficult to use multiple packages on the same data set and causes programmers to spend time creating and maintaining analogous solutions for the same low-level problems of data storage and manipulation, rather than focusing on novel functionality.
-These inefficiencies are likely to get worse as the cost of high-throughput sequences decreases, the interest in microbiome research increases, and the number of associated R packages increases.
+These inefficiencies are likely to get worse as the cost of high-throughput sequencing decreases, the interest in microbiome research increases, and the number of associated R packages increases.
 To address this problem, we are developing what we hope will become a standard in R for querying, storing, manipulating, and plotting taxonomic information and any other application-specific data associated with it.
 Being awarded this fellowship will allow us to devote the time needed to bring this project to maturity and help integrate it into the community of R programmers working with taxonomic data.
 A common infrastructure will allow programmers to make focused, novel contributions without creating redundant functionality.
 A cohesive community of packages will encourage users to conduct analyses entirely within R, increasing the effectiveness of reproducibility tools like `packrat` and R Markdown.
 
+## Proposed activities and outcomes
+
 **Background on `taxa`:**
 We are working on developing the rOpenSci package `taxa`, in collaboration with Scott Chamberlain, to provide a set of all-purpose classes and associated manipulation functions for taxonomic data, modeled after the `dplyr` data-manipulation philosophy.
 In addition to classes that represent taxa, classifications, and taxonomic trees, the `taxa` packages has a class that stores any number of application-specific tables, lists, or vectors mapped to a taxonomic tree so that manipulations to the taxonomy are also applied to the corresponding data and vice versa.
-For example, when filtering taxa, the corresponding user-supplied data can be optionally discarded or reassigned to supertaxa that passed the filter.
+For example, when filtering taxa, the corresponding user-supplied data can be optionally discarded or reassigned to supertaxa that pass the filter.
 Manipulation functions take into account the hierarchical relationships between taxa as well.
 For example, when filtering taxa or associated data, the supertaxa or subtaxa of taxa that meet some condition can be preserved or discarded.
 The `taxa` package also implements extremely flexible parsers to read data in from nearly any format containing taxonomic information. 
@@ -81,7 +84,7 @@ We have already submitted a workshop proposal for the 2018 11th International Co
 We hope to publish a paper on the `taxa` package in the F1000 open access journal.
 Finally, if this framework is adopted by the community as we hope, we would also want to publish an article describing the resources available for all-R analyses of taxonomic data using this framework.
 
-## Expected outcomes and timeline
+## Tentative timeline
 
 ### Months 1-3: Improvements to the `taxa` package
 
@@ -139,10 +142,10 @@ travel[4,2] <- 125
 travel[4,4] <- travel[4,2]
 
 travel[5,1] <- "Travel and registration for other conferences"
-travel[5,2] <- 2000
+travel[5,2] <- 2500
 travel[5,4] <- travel[5,2]
 
-travel[6,1] <- "Monthly graduate student salary"
+travel[6,1] <- "Graduate student salary"
 travel[6,2] <- 2000
 travel[6,3] <- "12 months"
 travel[6,4] <- travel[6,2] * 12
