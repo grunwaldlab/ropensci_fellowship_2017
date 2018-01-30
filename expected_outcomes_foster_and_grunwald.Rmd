@@ -1,0 +1,50 @@
+---
+output:
+  pdf_document: default
+geometry: margin=1.8cm
+---
+## Expected outcomes
+
+Funds from the rOpenSci 2017 fellowship will be used primarily to make improvements to the `taxa` and `metacoder` packages and promote these tools as standards for intereacting with taxonomic data in R. The goals is to provide a robust foundation for other packages to build on allow users to use multiple pacakges on the same data easily.
+
+### Improvements to the `taxa` package
+
+Although the `taxa` package is already useful, to make it a solid foundation for the community to build on, we want to make it faster and more robust. Specifically, we plan to:
+
+1. Add missing dplyr analog functions (e.g. `summarise`, `group_by`, etc)
+1. Port slowest parts of the code to C++ to improve speed using `Rcpp` 
+1. Add ability to use multiple cores to improve speed using `RcppParallel`
+1. Add exhaustive unit tests (test coverage of > 95%) using `testthat` and codecov
+
+### Improvements to the `metacoder` package
+
+`Metacoder` is currently being significantly refactored to use the classes provided by `taxa` and more functionality is being added specific to community taxonomic data analysis.
+One particularly useful high-level visualization technique we want to facilitate is a matrix of unlabeled heat trees that show which taxa are deferentially abundant between every pair-wise set of treatments accompanied by a larger, labeled tree that functions as a key.
+This can be used to show the results of thousands of statistical tests and the treatments/taxa they apply to in a graph that can fit in a publication.
+We also want to implement pairs of parser and writer functions that handle the common formats used in metabarcoding research to make it easy for users to move data in to and out of R.
+The `taxa` classes are flexible enough that we should be able to losslessly read and write the same format, so this would provide a way to subset or otherwise modify large, complicated files, using the powerful manipulation functions provided by `taxa`. Specifically, we plan to:
+
+1. Add function to easily create a heat tree matrix for pairwise comparison of treatments.
+1. For each major file format used in metabarcoding research, add a parser that returns the classes provided by `taxa` and a corresponding writer. When read from and written to the same format, the process should be lossless.
+1. Add automatic overlap avoidance for labels.
+1. Add support for plotting categorical information.
+1. Add ability to plot multiple colors per node/edge automatically when multiple values per taxon are supplied.
+1. Add ability to add silhouettes representing `taxa` from the pylopics database in place of nodes using `rphylopic`.
+1. Add ability to highlight/delineate groups of `taxa` with shaded polygons.
+1. Add support for interactive plots using `plotly`.
+
+### Outreach and community building
+
+Encouraging adoption of this framework by both users and developers is key to the success of this project.
+We hope to facilitate adoption by developers by offering to help maintainers adapt existing packages to `taxa`.
+To attract users, we want to submit a series of posts on R-bloggers that cover specific uses of the framework and demonstrate its usefulness.
+We also plan to present this work at biological and computational conferences, including the UseR 2018 conference, the rOpenSci 2018 unconference, and the 2018 11th International Congress of Plant Pathology joint conference. Specifically, we plan to:
+
+1. Contact the maintainers of major packages using taxonomic information and offer to help adopt `taxa`.
+1. Finish refactoring of `taxize` to use `taxa`.
+1. Present at the 2018 rOpenSci unconference.
+1. Present at the 2018 useR! conference.
+1. Conduct a workshop and reproducible microbiome analysis in R using these tool at the 2018 11th International Congress of Plant Pathology.
+1. Write a series of blogs demonstrating the usefulness of these tools.
+1. Publish an open-access journal article on `taxa`.
+1. Publish an open-source tutorial webpage on reproducible microbiome analysis in R.
